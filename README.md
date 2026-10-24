@@ -40,15 +40,47 @@ bash scripts/net_troubleshoot.sh example.com 443
 
 ## Example audit output
 
-```
-# AWS Audit Report (ap-south-1) - 2026-10-24 10:30
+=== Host: Om | 2026-10-24 07:47:20 ===
+Uptime / load : up 2 minutes | 0.29 0.19 0.08
+Memory        : 491Mi used of 3.7Gi
 
-## [COST] Unattached EBS volumes: 2 found
-  - vol-0abc123 (20 GiB)
-## [SECURITY] Security groups open to the world on SSH/RDP: 1 found
-  - sg-0def456 (default-ssh) allows SSH from 0.0.0.0/0
-## [SECURITY] IAM users without MFA: OK
-```
+--- Disk usage (warn at 80%) ---
+Filesystem      Size  Used Avail Use% Mounted on
+none            1.9G     0  1.9G   0% /usr/lib/modules/6.18.54.1-microsoft-standard-WSL2
+/dev/sdb         97M   97M     0 100% /usr/lib/linux-tools/6.18.54.1-microsoft-standard-WSL2  <-- WARNING
+drivers         195G  114G   82G  59% /usr/lib/wsl/drivers
+/dev/sdd       1007G  1.3G  955G   1% /
+none            1.9G     0  1.9G   0% /usr/lib/wsl/lib
+rootfs          1.9G  3.4M  1.9G   1% /init
+none            1.9G   80K  1.9G   1% /mnt/wslg/versions.txt
+none            1.9G   80K  1.9G   1% /mnt/wslg/doc
+C:\             195G  114G   82G  59% /mnt/c
+D:\              98G   29G   70G  30% /mnt/d
+E:\             184G   99G   86G  54% /mnt/e
+
+--- Top 5 processes by memory ---
+    PID COMMAND         %MEM %CPU
+    294 unattended-upgr  0.8  0.3
+    165 networkd-dispat  0.7  0.4
+     65 systemd-journal  0.4  0.4
+      1 systemd          0.4  1.9
+    187 wsl-pro-service  0.3  0.2
+
+--- Failed systemd services ---
+None
+
+--- Pending package updates ---
+Upgradable packages: 0
+
+--- Listening ports ---
+tcp 10.255.255.254:53
+tcp 127.0.0.53%lo:53
+tcp 127.0.0.54:53
+udp 10.255.255.254:53
+udp 127.0.0.1:323
+udp 127.0.0.53%lo:53
+udp 127.0.0.54:53
+udp [::1]:323
 
 (Sample format only; output depends on your account.)
 
